@@ -27,4 +27,4 @@ jobs:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASS: ${{ secrets.MY_PASS }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
-        run: python main.py
+        run: python swertres.py
