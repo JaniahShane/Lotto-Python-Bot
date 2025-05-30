@@ -2,9 +2,9 @@ name: Swertres Email Sender
 
 on:
   schedule:
-    - cron: '2 3 * * *'   # 11:02 AM PH Time
-    - cron: '8 5 * * *'   # 1:08 PM PH Time
-    - cron: '12 9 * * *'  # 5:12 PM PH Time
+  - cron: '5 6 * * *'    # 2:05 PM PH Time
+  - cron: '5 9 * * *'    # 5:05 PM PH Time
+  - cron: '5 13 * * *'   # 9:05 PM PH Time
   workflow_dispatch:      # allows manual trigger from phone
 
 jobs:
