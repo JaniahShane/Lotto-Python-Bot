@@ -1,0 +1,30 @@
+name: Swertres Email Sender
+
+on:
+  schedule:
+    - cron: '2 3 * * *'   # 11:02 AM PH Time
+    - cron: '8 5 * * *'   # 1:08 PM PH Time
+    - cron: '12 9 * * *'  # 5:12 PM PH Time
+  workflow_dispatch:      # allows manual trigger from phone
+
+jobs:
+  send-swertres-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run script
+        env:
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_PASS: ${{ secrets.MY_PASS }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+        run: python main.py
